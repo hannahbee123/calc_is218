@@ -1,4 +1,5 @@
 from src.calculator.addition import addition
+from src.calculator.subtraction import subtraction
 
 
 class Calculator:
@@ -8,5 +9,9 @@ class Calculator:
         pass
 
     def add(self, a, b):
-        self.result = a + b
-        return addition(a, b)
+        self.result = addition(a, b)
+        return self.result
+
+    def subtract(self, a, b):
+        self.result = subtraction(a, b)
+        return self.result
