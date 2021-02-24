@@ -21,6 +21,7 @@ class CSVTestCase(unittest.TestCase):
         for row in test_data:
             self.assertEqual(calculator.add(float(row['Value 1']), float(row['Value 2'])), float(row['Result']))
             self.assertEqual(calculator.result, float(row['Result']))
+        test_data.clear()
 
     def test_subtract_method_calculator(self):
         calculator = Calculator()
@@ -28,6 +29,7 @@ class CSVTestCase(unittest.TestCase):
         for row in test_data:
             self.assertEqual(calculator.subtract(float(row['Value 2']), float(row['Value 1'])), float(row['Result']))
             self.assertEqual(calculator.result, float(row['Result']))
+        test_data.clear()
 
     def test_multiply_method_calculator(self):
         calculator = Calculator()
@@ -35,14 +37,15 @@ class CSVTestCase(unittest.TestCase):
         for row in test_data:
             self.assertEqual(calculator.multiply(float(row['Value 1']), float(row['Value 2'])), float(row['Result']))
             self.assertEqual(calculator.result, float(row['Result']))
+        test_data.clear()
 
-    # rounding error for result -- fix???
     def test_divide_method_calculator(self):
         calculator = Calculator()
         test_data = CsvReader('/data/division.csv').data
         for row in test_data:
             self.assertEqual(calculator.divide(float(row['Value 2']), float(row['Value 1'])), (float(row['Result'])))
             self.assertEqual(calculator.result, (float(row['Result'])))
+        test_data.clear()
 
     def test_square_method_calculator(self):
         calculator = Calculator()
@@ -50,14 +53,15 @@ class CSVTestCase(unittest.TestCase):
         for row in test_data:
             self.assertEqual(calculator.square(float(row['Value 1'])), float(row['Result']))
             self.assertEqual(calculator.result, float(row['Result']))
+        test_data.clear()
 
-    # rounding error for result -- fix???
     def test_square_root_method_calculator(self):
         calculator = Calculator()
         test_data = CsvReader('/data/squareRoot.csv').data
         for row in test_data:
             self.assertEqual(calculator.square_root(float(row['Value 1'])), float(row['Result']))
             self.assertEqual(calculator.result, float(row['Result']))
+        test_data.clear()
 
 
 if __name__ == '__main__':
