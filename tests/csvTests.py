@@ -22,33 +22,43 @@ class CSVTestCase(unittest.TestCase):
             self.assertEqual(calculator.add(float(row['Value 1']), float(row['Value 2'])), float(row['Result']))
             self.assertEqual(calculator.result, float(row['Result']))
 
-
-'''
     def test_subtract_method_calculator(self):
         calculator = Calculator()
-        self.assertEqual(calculator.subtract(2, 2), 0)
-        self.assertEqual(calculator.result, 0)
+        test_data = CsvReader('/data/subtraction.csv').data
+        for row in test_data:
+            self.assertEqual(calculator.subtract(float(row['Value 2']), float(row['Value 1'])), float(row['Result']))
+            self.assertEqual(calculator.result, float(row['Result']))
 
     def test_multiply_method_calculator(self):
         calculator = Calculator()
-        self.assertEqual(calculator.multiply(2, 2), 4)
-        self.assertEqual(calculator.result, 4)
+        test_data = CsvReader('/data/multiplication.csv').data
+        for row in test_data:
+            self.assertEqual(calculator.multiply(float(row['Value 1']), float(row['Value 2'])), float(row['Result']))
+            self.assertEqual(calculator.result, float(row['Result']))
 
+    # rounding error for result -- fix???
     def test_divide_method_calculator(self):
         calculator = Calculator()
-        self.assertEqual(calculator.divide(2, 2), 1)
-        self.assertEqual(calculator.result, 1)
+        test_data = CsvReader('/data/division.csv').data
+        for row in test_data:
+            self.assertEqual(calculator.divide(float(row['Value 2']), float(row['Value 1'])), (float(row['Result'])))
+            self.assertEqual(calculator.result, (float(row['Result'])))
 
     def test_square_method_calculator(self):
         calculator = Calculator()
-        self.assertEqual(calculator.square(2), 4)
-        self.assertEqual(calculator.result, 4)
+        test_data = CsvReader('/data/square.csv').data
+        for row in test_data:
+            self.assertEqual(calculator.square(float(row['Value 1'])), float(row['Result']))
+            self.assertEqual(calculator.result, float(row['Result']))
 
+    # rounding error for result -- fix???
     def test_square_root_method_calculator(self):
         calculator = Calculator()
-        self.assertEqual(calculator.square_root(4), 2)
-        self.assertEqual(calculator.result, 2)
-'''
+        test_data = CsvReader('/data/squareRoot.csv').data
+        for row in test_data:
+            self.assertEqual(calculator.square_root(float(row['Value 1'])), float(row['Result']))
+            self.assertEqual(calculator.result, float(row['Result']))
+
 
 if __name__ == '__main__':
     unittest.main()
