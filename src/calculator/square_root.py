@@ -1,2 +1,3 @@
 def square_root(a):
-    return a ** 0.5
+    b = a ** 0.5
+    return round(b, 8)

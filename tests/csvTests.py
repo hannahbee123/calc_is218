@@ -59,8 +59,8 @@ class CSVTestCase(unittest.TestCase):
         calculator = Calculator()
         test_data = CsvReader('/data/squareRoot.csv').data
         for row in test_data:
-            self.assertEqual(calculator.square_root(float(row['Value 1'])), float(row['Result']))
-            self.assertEqual(calculator.result, float(row['Result']))
+            self.assertEqual(calculator.square_root(float(row['Value 1'])), round(float(row['Result']), 8))
+            self.assertEqual(calculator.result, round(float(row['Result']), 8))
         test_data.clear()
 
 
