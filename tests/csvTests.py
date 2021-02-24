@@ -17,9 +17,12 @@ class CSVTestCase(unittest.TestCase):
 
     def test_add_method_calculator(self):
         calculator = Calculator()
-        test_data = CsvReader('/src/csv/addition.csv').data
-        self.assertEqual(calculator.add(row['Value 1'], row['Value 2']), float(row['Result']))
-        self.assertEqual(calculator.result, float(row['Result']))
+        test_data = CsvReader('/data/addition.csv').data
+        for row in test_data:
+            self.assertEqual(calculator.add(float(row['Value 1']), float(row['Value 2'])), float(row['Result']))
+            self.assertEqual(calculator.result, float(row['Result']))
+
+
 '''
     def test_subtract_method_calculator(self):
         calculator = Calculator()
