@@ -32,6 +32,7 @@ class CalculatorTestCase(unittest.TestCase):
         calculator = Calculator()
         self.assertEqual(calculator.divide(2, 2), 1)
         self.assertEqual(calculator.result, 1)
+        self.assertRaises(ZeroDivisionError, calculator.divide, 1, 0)
 
     def test_square_method_calculator(self):
         calculator = Calculator()

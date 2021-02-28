@@ -45,6 +45,7 @@ class CSVTestCase(unittest.TestCase):
         for row in test_data:
             self.assertEqual(calculator.divide(float(row['Value 2']), float(row['Value 1'])), (float(row['Result'])))
             self.assertEqual(calculator.result, (float(row['Result'])))
+            self.assertRaises(ZeroDivisionError, calculator.divide, float(row['Value 2']), 0)
         test_data.clear()
 
     def test_square_method_calculator(self):
